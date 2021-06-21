@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.MainWindowController">
+   <center>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Csapatok">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="teamsTableView" layoutX="19.0" layoutY="61.0" prefHeight="493.0" prefWidth="862.0">
+                          <columns>
+                            <TableColumn fx:id="teamsIdColumn" prefWidth="34.0" text="id" />
+                            <TableColumn fx:id="teamsNameColumn" prefWidth="257.0" text="csapatnév" />
+                              <TableColumn fx:id="teamsSuccessesColumn" prefWidth="192.0" text="sikerek" />
+                              <TableColumn fx:id="teamsNationalityColumn" prefWidth="128.5" text="nemzetiség" />
+                              <TableColumn fx:id="teamsActionsColumn" prefWidth="249.49993896484375" text="műveletek" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="17.0" layoutY="13.0" text="Csapatok">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="782.0" layoutY="15.0" mnemonicParsing="false" onAction="#onAddNewTeam" text="+ Hozzáadás" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Játékosok">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="16.0" layoutY="11.0" prefHeight="32.0" prefWidth="119.0" text="Játékosok">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="playersTableView" layoutX="17.0" layoutY="62.0" prefHeight="489.0" prefWidth="867.0">
+                          <columns>
+                            <TableColumn fx:id="playersIdColumn" prefWidth="34.0" text="id" />
+                            <TableColumn fx:id="playersNameColumn" prefWidth="233.13071060180664" text="név" />
+                              <TableColumn fx:id="playersPositionColumn" prefWidth="141.3692626953125" text="pozíció" />
+                              <TableColumn fx:id="playersBirthYearColumn" prefWidth="88.23175048828125" text="születési év" />
+                              <TableColumn fx:id="playersTeamColumn" prefWidth="203.08914184570312" text="csapat" />
+                              <TableColumn fx:id="playersActionsColumn" prefWidth="163.5072021484375" text="műveletek" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="addPlayerButton" layoutX="786.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAddNewPlayer" text="+ Hozzáadás" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Fájl">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onExit" text="Bezárás" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Szerkesztés">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onAddNewTeam" text="Csapat hozzáadása..." />
+              <MenuItem mnemonicParsing="false" onAction="#onAddNewPlayer" text="Játékos hozzáadása..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
